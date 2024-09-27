@@ -16,8 +16,7 @@ export const connectDB = async () => {
 
 export const insertPokemons = async () => {
   await PokemonModel.deleteMany({});
-  const pokemonData = dataset.pokemon;
-  await PokemonModel.insertMany(pokemonData);
+  await PokemonModel.insertMany(dataset.pokemon);
   console.log("Pokemon data inserted");
 };
 export const getPokemonByName = async (name: string): Promise<Pokemon> => {

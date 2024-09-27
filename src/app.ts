@@ -1,4 +1,6 @@
 import express from "express";
+import swaggerUI from "swagger-ui-express";
+import swaggerDoc from "../swagger.json";
 import { connectDB, insertPokemons } from "./db/database";
 import { battle } from "./services/battleService";
 import { getPokemons } from "./services/pokemonService";
@@ -6,6 +8,7 @@ import { validateTeams } from "./utils/validation";
 
 const app = express();
 app.use(express.json());
+app.use("/swagger", swaggerUI.serve, swaggerUI.setup(swaggerDoc));
 
 const PORT = process.env.APP_PORT || 3000;
 

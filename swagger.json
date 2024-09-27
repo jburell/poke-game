@@ -1,0 +1,51 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Pokemon Battle API",
+    "description": "Evinova codetest"
+  },
+  "paths": {
+    "/battle": {
+      "post": {
+        "summary": "Battle",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "team1": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "example": ["pikachu", "charmander", "bulbasaur"]
+                  },
+                  "team2": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "example": ["squirtle", "eevee", "snorlax"]
+                  }
+                },
+                "required": ["team1", "team2"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Battle log",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
