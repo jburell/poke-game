@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:20
 
 WORKDIR /usr/src/app
 
@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . .
 
+RUN npx tsc
+
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["node", "./dist/app.js"]
